@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>📊 Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            width: 600px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        canvas {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        .stats {
+            margin-top: 15px;
+            font-size: 16px;
+            color: #333;
+        }
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            color: white;
+            background: #004aad;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+        a:hover {
+            background: #003080;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📊 Fraud Detection Dashboard</h2>
+        
+        <canvas id="fraudChart"></canvas>
+
+        <div class="stats">
+            <p>Total Checks: <strong>{{ total_checks }}</strong></p>
+            <p>Phishing: <strong>{{ phishing_count }}</strong></p>
+            <p>Safe: <strong>{{ safe_count }}</strong></p>
+        </div>
+
+        <a href="{% url 'index' %}">⬅ Back to Home</a>
+    </div>
+
+    <script>
+    const ctx = document.getElementById('fraudChart');
+
+    // Pass Django variables safely to JS
+    const phishingCount = {{ phishing_count|safe }};
+    const safeCount = {{safe_count|safe }};
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Phishing', 'Safe'],
+            datasets: [{
+                data: [phishingCount, safeCount],
+                backgroundColor: ['#ff4d4d', '#4CAF50'],
+                borderColor: ['#fff', '#fff'],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                },
+                title: {
+                    display: true,
+                    text: 'Phishing vs Safe Messages'
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
+
+{% comment %} 
+cd E:\email\fraud_detector_project{% endcomment %}

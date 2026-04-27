@@ -1,0 +1,55 @@
+
+=== phishing_email.csv ===
+                                       text_combined  label
+0  hpl nom may 25 2001 see attached file hplno 52...      0
+1  nom actual vols 24 th forwarded sabrae zajac h...      0
+2  enron actuals march 30 april 1 201 estimated a...      0
+
+
+=== sms.csv ===
+  Category                                            Message
+0      ham  Go until jurong point, crazy.. Available only ...
+1      ham                      Ok lar... Joking wif u oni...
+2     spam  Free entry in 2 a wkly comp to win FA Cup fina...
+
+
+=== Spam_SMS.csv ===
+  Class                                            Message
+0   ham  Go until jurong point, crazy.. Available only ...
+1   ham                      Ok lar... Joking wif u oni...
+2  spam  Free entry in 2 a wkly comp to win FA Cup fina...
+
+
+=== Enron.csv ===
+                                      subject                                               body  label
+0                   hpl nom for may 25 , 2001  ( see attached file : hplno 525 . xls )\r\n- h...      0
+1            re : nom / actual vols for 24 th  - - - - - - - - - - - - - - - - - - - - - - fo...      0
+2  enron actuals for march 30 - april 1 , 201  estimated actuals\r\nmarch 30 , 2001\r\nno flo...      0
+
+
+=== CEAS_08.csv ===
+                                              sender                       receiver  ... label urls
+0                   Young Esposito <Young@iworld.de>    user4@gvc.ceas-challenge.cc  ...     1    1
+1                       Mok <ipline's1983@icable.ph>  user2.2@gvc.ceas-challenge.cc  ...     1    1
+2  Daily Top 10 <Karmandeep-opengevl@universalnet...  user2.9@gvc.ceas-challenge.cc  ...     1    1
+
+[3 rows x 7 columns]
+
+
+=== Nigerian_Fraud.csv ===
+                                           sender              receiver  ... urls label
+0  MR. JAMES NGOLA. <james_ngola2002@maktoob.com>  webmaster@aclweb.org  ...    0     1
+1  Mr. Ben Suleman <bensul2004nng@spinfinder.com>                   R@M  ...    0     1
+2       PRINCE OBONG ELEME <obong_715@epatra.com>  webmaster@aclweb.org  ...    0     1
+
+[3 rows x 7 columns]
+
+
+=== SpamAssasin.csv ===
+                                      sender                                           receiver  ... label urls
+0             Robert Elz <kre@munnari.OZ.AU>  Chris Garrigues <cwg-dated-1030377287.06fa6d@D...  ...     0    1
+1  Steve Burt <Steve_Burt@cursor-system.com>  "'zzzzteana@yahoogroups.com'" <zzzzteana@yahoo...  ...     0    1
+2              "Tim Chapman" <timc@2ubh.com>              zzzzteana <zzzzteana@yahoogroups.com>  ...     0    1
+
+[3 rows x 7 columns]
+
