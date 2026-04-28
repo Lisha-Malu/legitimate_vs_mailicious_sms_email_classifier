@@ -5,7 +5,7 @@ DATA_DIR = "datasets"
 OUTPUT_DIR = os.path.join(DATA_DIR, "cleaned")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# ========== 1️⃣ Helper: combine subject+body ==========
+
 def combine_subject_body(df):
     if "subject" in df.columns and "body" in df.columns:
         df["message"] = df["subject"].fillna("") + " " + df["body"].fillna("")
@@ -15,7 +15,7 @@ def combine_subject_body(df):
         df["message"] = df[df.columns[0]].astype(str)
     return df
 
-# ========== 2️⃣ SMS datasets ==========
+#SMS datasets 
 sms_files = ["sms.csv", "Spam_SMS.csv"]
 sms_data = pd.DataFrame()
 
@@ -30,9 +30,9 @@ for f in sms_files:
 
 print(f"📱 SMS data combined: {len(sms_data)} samples")
 sms_data.to_csv(os.path.join(OUTPUT_DIR, "sms_data.csv"), index=False)
-print("✅ Saved cleaned SMS data")
+print(" Saved cleaned SMS data")
 
-# ========== 3️⃣ Email datasets ==========
+#  Email datasets
 email_files = [
     "phishing_email.csv", "Enron.csv", "CEAS_08.csv",
     "Ling.csv", "Nigerian_Fraud.csv", "SpamAssasin.csv"
