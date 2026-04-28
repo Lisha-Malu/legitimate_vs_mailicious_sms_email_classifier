@@ -56,4 +56,4 @@ for f in email_files:
 
 print(f"✉ Email data combined: {len(email_data)} samples")
 email_data.to_csv(os.path.join(OUTPUT_DIR, "email_data.csv"), index=False)
-print("✅ Saved cleaned Email data")
+print("Saved cleaned Email data")
