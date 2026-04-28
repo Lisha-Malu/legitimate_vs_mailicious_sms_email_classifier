@@ -5,7 +5,7 @@ import openpyxl
 import joblib
 import os
 
-# --- Load ML Models ---
+# Load ML Models
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODEL_DIR = os.path.join(BASE_DIR, "models")
 
@@ -13,7 +13,7 @@ router_model = joblib.load(os.path.join(MODEL_DIR, "router_model.pkl"))
 sms_model = joblib.load(os.path.join(MODEL_DIR, "sms_model.pkl"))
 email_model = joblib.load(os.path.join(MODEL_DIR, "email_model.pkl"))
 
-# --- Home Page ---
+#  Home Page 
 def index(request):
     prediction_result = None
     msg_type = None
@@ -68,7 +68,7 @@ def index(request):
     })
 
 
-# --- Dashboard Page ---
+# Dashboard Page 
 def dashboard(request):
     history = request.session.get("history", [])
     total_checks = len(history)
@@ -83,13 +83,13 @@ def dashboard(request):
     })
 
 
-# --- History Page ---
+#History Page 
 def history(request):
     history = request.session.get("history", [])
     return render(request, "detector/history.html", {"history": history})
 
 
-# --- Delete History Item ---
+# Delete History Item
 def delete_history(request, id):
     history = request.session.get("history", [])
     if 0 <= id < len(history):
@@ -98,7 +98,7 @@ def delete_history(request, id):
     return redirect("history")
 
 
-# --- Export to Excel ---
+# Export to Excel 
 def export_to_excel(request):
     history = request.session.get("history", [])
     if not history:
